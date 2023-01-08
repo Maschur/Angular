@@ -1,0 +1,83 @@
+<div class="card">
+  <div class="card-header">
+    <h5>Neue Buchung anlegen</h5>
+  </div>
+
+  <div class="card-body">
+    <form>
+      <div class="row mb-2">
+        <div class="col mb-2">
+          <label for="exampleInputPassword1" class="form-label">ID</label>
+          <input
+            [(ngModel)]="booking.id"
+            name="id"
+            class="form-control"
+            id="exampleInputPassword1"
+            type="number"
+          />
+
+          <label for="exampleInputEmail1" class="form-label"
+            >Vor- und Nachname</label
+          >
+          <input
+            [(ngModel)]="booking.name"
+            name="vorundnachname"
+            type="text"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+          />
+
+          <label for="exampleInputPassword1" class="form-label"
+            >Raumnummer</label
+          >
+          <input
+            [(ngModel)]="booking.roomNumber"
+            name="raumNr"
+            class="form-control"
+            type="number"
+            id="exampleInputPassword1"
+          />
+        </div>
+        <div class="col">
+          <label for="exampleInputPassword1" class="form-label" 
+            >Ankunftsdatum</label
+          >
+          <input
+            [value]="booking.startDate | date:'yyyy-MM-dd' "
+            (input)="dateChanged($event,true)"
+            name="start"
+            class="form-control"
+            type="date"
+            id="exampleInputPassword1"
+          />
+
+          <label for="exampleInputPassword1" class="form-label"
+            >Abreisedatum</label
+          >
+          <input
+            [value]="booking.endDate | date:'yyyy-MM-dd' "
+            (input)="dateChanged($event,false)"
+            name="end"
+            type="date"
+            class="form-control"
+            id="exampleInputPassword1"
+          />
+        </div>
+      </div>
+
+      <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+        <label class="form-check-label" for="exampleCheck1"
+          >Vom Ur-Naga abgesegnet</label
+        >
+      </div>
+
+
+    </form>
+  </div>
+
+  <div class="card-footer">
+    <button (click)="speichern()" type="submit" class="btn btn-primary">Speichern</button>
+  </div>
+</div>
